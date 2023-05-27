@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: niryo_one_pose_converter
+Version: 2.3.1
+Summary: Handles the convertion of workspace-relative poses to robot poses
+Home-page: UNKNOWN
+Author: Rémi Lux <r.lux@niryo.com>, Etienne Rey-Coquais <e.rey-coquais@niryo.com>
+Author-email: a.voigt@niryo.com
+License: GPLv3
+Description: UNKNOWN
+Platform: UNKNOWN

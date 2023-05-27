@@ -1,0 +1,8 @@
+prefix=/home/dinithi/UnityProjects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/install
+
+Name: niryo_moveit
+Description: Description of niryo_moveit
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: niryo_one_commander
+Version: 2.3.1
+Summary: Interface between user and Moveit! to easily control Niryo One (arm + tools). Validates params, checks if previous trajectory has not finished, ...
+Home-page: UNKNOWN
+Author: Rémi Lux
+Author-email: r.lux@niryo.com
+License: GPLv3
+Description: UNKNOWN
+Platform: UNKNOWN

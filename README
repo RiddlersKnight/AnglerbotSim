@@ -1,0 +1,60 @@
+# Anglerbot Simulator
+
+## Keyboard controls
+
+On the Anglerbot gameobject
+- Activate `Keyboard Move`
+- Deactivate `Ros Move`
+
+Left Propeller
+- Forward: `w`
+- Backward: `s`
+
+Right Propeller
+- Forward: `o`
+- Backward: `l`
+
+Depth Propeller
+- Up: `Space`
+- Down: `Left Shift`
+
+## Connecting Unity to Ros
+
+In a terminal
+- `roscore`
+
+In another terminal
+- `source devel/setup.bash`
+- `roslaunch ros_tcp_endpoint basic_endpoint.launch`
+
+## Ros controls
+
+On the Anglerbot gameobject
+- Activate `Ros Move`
+- Deactivate `Keyboard Move`
+
+Send a `Twist` message on topic `cmd_vel`
+
+- `Linear`
+  - `x`: Forward
+  - `z`: Depth
+- `Angular`
+  - `z`: Rotation around the vertical axis
+
+# Robot acoustic position tracking
+
+On the Anglerbot gameobject
+- Activate `Robot Control`
+  
+# Rviz visualizations
+
+Make sure robot acoustic position tracking (previous step) is active
+
+On the `TF Broadcaster` gameobject
+
+- Activate `Ros Broadcast All Frames`
+- Make sure the Robot and Tags are in the appropriate slots
+
+# Active alignment
+
+Move the Anglerbot light stalk into a tag beam with keyboard or ros controls. It should locate and align itself with the beam
