@@ -1,0 +1,8 @@
+prefix=/home/dinithi/UnityProjects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/devel
+
+Name: niryo_one_rpi
+Description: Description of niryo_one_rpi
+Version: 2.3.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

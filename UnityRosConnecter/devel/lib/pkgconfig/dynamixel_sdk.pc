@@ -1,0 +1,8 @@
+prefix=/home/dinithi/UnityProjects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/devel
+
+Name: dynamixel_sdk
+Description: Description of dynamixel_sdk
+Version: 3.4.7
+Cflags: -I/home/dinithi/UnityProjects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/src/niryo_one_ros/dynamixel_sdk/include
+Libs: -L${prefix}/lib -ldynamixel_sdk
+Requires: 
