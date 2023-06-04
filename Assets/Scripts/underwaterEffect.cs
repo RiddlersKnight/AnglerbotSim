@@ -6,10 +6,11 @@ using System.Collections;
 public class underwaterEffect : MonoBehaviour
 {
     public Slider fogSlider;
+    public Text fogText;
     public float waterHeight;
     public float fogDensity = 0.02f;
 
-    public static event Action<float> OnFogDensityChanged;
+    public static event Action<float> OnBeamLengthChanged;
 
     private bool isUnderwater;
     private Color normalColor;
@@ -23,6 +24,8 @@ public class underwaterEffect : MonoBehaviour
     private float expB = 0;
     private float expC = 0;
 
+    private float absorbance = Mathf.Log10(1/0.1f);
+
     void Awake()
     {
         normalColor = new Color(1f, 1f, 1f, 1f);
@@ -34,6 +37,8 @@ public class underwaterEffect : MonoBehaviour
             expC = 2 * Mathf.Log((max - mid) / (mid - min));
 
             fogSlider.onValueChanged.AddListener(OnFogSliderChanged);
+
+            OnFogSliderChanged(fogSlider.value);
         }
     }
 
@@ -52,18 +57,20 @@ public class underwaterEffect : MonoBehaviour
     {
         RenderSettings.fogColor = normalColor;
         RenderSettings.fogDensity = 0f;
-        OnFogDensityChanged(1f);
+        float beamLength = absorbance / (2f);
+        OnBeamLengthChanged(1f);
     }
 
     void SetUnderwater()
     {
         RenderSettings.fogColor = underwaterColor;
         RenderSettings.fogDensity = fogDensity;
-        OnFogDensityChanged(fogDensity);
+        OnBeamLengthChanged(absorbance / (fogDensity*2f));
     }
 
     private void OnFogSliderChanged(float val) {
         fogDensity = expA + expB * Mathf.Exp(expC * val);
+        fogText.text = "Murkiness: " + fogDensity.ToString("F3");
         // print(fogDensity);
         if(isUnderwater) {
             SetUnderwater();

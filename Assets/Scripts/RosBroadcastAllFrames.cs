@@ -34,7 +34,7 @@ public class RosBroadcastAllFrames : MonoBehaviour {
         beamsMsg = new PoseArrayMsg(new HeaderMsg(0, new TimeMsg(), odomFrame), new PoseMsg[tags.Length]);
 
         for(int i = 0; i < tags.Length; i++) {
-            print(i);
+            // print(i);
             HeaderMsg header = new HeaderMsg(0, new TimeMsg(), odomFrame);
             Vector3<FLU> tagPos = tags[i].position.To<FLU>();
             TransformMsg trans = new TransformMsg(
@@ -47,7 +47,7 @@ public class RosBroadcastAllFrames : MonoBehaviour {
             beamsMsg.poses[i].position = new PointMsg(beamPos.x, beamPos.y, beamPos.z);
             beamsMsg.poses[i].orientation = tags[i].GetChild(0).rotation.To<FLU>();
         }
-        print("mid");
+        // print("mid");
         // Finally send the message to server_endpoint.py running in ROS
         m_Ros.Publish(tfTopic, tagsMsg);
         m_Ros.Publish(poseArrayTopic, beamsMsg);
@@ -61,7 +61,7 @@ public class RosBroadcastAllFrames : MonoBehaviour {
         robotPoseMsg.transforms[0] = new TransformStampedMsg(robotHeader, robot.name, robotTrans);
         // Finally send the message to server_endpoint.py running in ROS
         m_Ros.Publish(tfTopic, robotPoseMsg);
-        print(":end");
+        // print("end");
     }
 
     private void FixedUpdate() {
