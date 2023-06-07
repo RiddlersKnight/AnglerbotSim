@@ -25,7 +25,7 @@ public class RosBroadcastAllFrames : MonoBehaviour {
     private const string odomFrame = "odom";
 
     private void Awake () {
-// Get ROS connection static instance
+        // Get ROS connection static instance
         m_Ros = ROSConnection.GetOrCreateInstance();
         m_Ros.RegisterPublisher<TFMessageMsg>(tfTopic);
         m_Ros.RegisterPublisher<TFMessageMsg>(poseArrayTopic);

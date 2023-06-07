@@ -23,6 +23,7 @@ public class TagBeamAdjuster : MonoBehaviour {
         underwaterEffect.OnBeamLengthChanged -= UpdateBeamLength;
     }
 
+    // Update the beam length based on a previously calculated value from a modified Beer-Lambert 
     private void UpdateBeamLength(float beamLength) {
         // print("Got the action! " + density);
         //float length = 1f - 0.9f * density;

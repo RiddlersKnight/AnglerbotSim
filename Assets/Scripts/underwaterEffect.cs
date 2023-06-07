@@ -31,6 +31,7 @@ public class underwaterEffect : MonoBehaviour
         normalColor = new Color(1f, 1f, 1f, 1f);
         underwaterColor = new Color(0.22f, 0.65f, 0.77f, 0.5f);
 
+        // Make the linear slider value into a logrithmic output
         if(fogSlider != null) {
             expA = (min * max - mid * mid) / (min - 2 * mid + max);
             expB = ((mid - min) * (mid - min)) / (min - 2 * mid + max);
@@ -53,6 +54,7 @@ public class underwaterEffect : MonoBehaviour
         }
     }
 
+    // Robot is on the surface of the water. Make the beams short so they don't go above the water
     void SetNormal()
     {
         RenderSettings.fogColor = normalColor;
@@ -61,6 +63,7 @@ public class underwaterEffect : MonoBehaviour
         OnBeamLengthChanged(1f);
     }
 
+    // Robot is underwater. Adjust the beam to something realistic using a modification of Beer-Lambert
     void SetUnderwater()
     {
         RenderSettings.fogColor = underwaterColor;
@@ -69,6 +72,7 @@ public class underwaterEffect : MonoBehaviour
     }
 
     private void OnFogSliderChanged(float val) {
+        // Make the linear slider value into a logrithmic output
         fogDensity = expA + expB * Mathf.Exp(expC * val);
         fogText.text = "Murkiness: " + fogDensity.ToString("F3");
         // print(fogDensity);

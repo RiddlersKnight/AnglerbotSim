@@ -16,6 +16,7 @@ public class WaterEffect : MonoBehaviour {
 		InvokeRepeating ("NextFrame", 1 / fps, 1 / fps);
 	}
 
+    // Update the material to the next texture in sequence to simualate water caustics
 	void NextFrame(){
 		projector.material.SetTexture ("_ShadowTex", frames [frameIndex]);
 		frameIndex = (frameIndex + 1) % frames.Length;

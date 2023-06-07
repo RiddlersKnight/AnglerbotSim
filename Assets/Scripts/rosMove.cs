@@ -33,6 +33,7 @@ public class rosMove : MonoBehaviour {
 		// rb = GetComponent<Rigidbody>();
 	}
 
+    // Use ROS Twist message inputs to move the robot
 	void FixedUpdate () {
         float leftPropeller = (angularVel + forwardVel) / 2f;
         float rightPropeller = forwardVel - leftPropeller;

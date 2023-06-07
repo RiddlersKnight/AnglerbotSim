@@ -16,6 +16,7 @@ public class RobotControl : MonoBehaviour
         tagMask = LayerMask.GetMask("Tags");
     }
 
+    // Perform acoustic trilateration to estimate the robot's position
     private void Update() {
         Collider[] cols = Physics.OverlapSphere(transform.position, 100, tagMask);
         int numCols = cols.Length;

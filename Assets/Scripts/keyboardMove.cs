@@ -18,6 +18,7 @@ public class keyboardMove : MonoBehaviour {
 		// rb = GetComponent<Rigidbody>();
 	}
 
+	// Use keyboard inputs to move the robot
 	void FixedUpdate () {
 		float leftPropeller = Input.GetAxis ("LeftPropeller");
 		leftProp.SetFloat("PropellerSpeed", leftPropeller);

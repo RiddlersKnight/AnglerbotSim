@@ -20,6 +20,7 @@ public class WaterEffectTerrain : MonoBehaviour {
 		InvokeRepeating ("NextFrame", 1 / fps, 1 / fps);
 	}
 
+	// Update the Terrain material to the next texture in sequence to simualate water caustics
 	void NextFrame(){
 		layer.diffuseTexture = frames [frameIndex];
 		//projector.material.SetTexture ("_ShadowTex", frames [frameIndex]);
